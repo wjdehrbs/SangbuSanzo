@@ -1,9 +1,14 @@
 package com.example.sangbusanzo
 
+import android.app.ActivityOptions
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -139,7 +144,11 @@ class MainPage : AppCompatActivity() {
 
     private fun initButton() {
         notificationCloseButton.setOnClickListener {
-            notification.isVisible = false
+            val animation = AnimationUtils.loadAnimation(notification.context, R.anim.fade_out)
+            notification.startAnimation(animation)
+            Handler(Looper.getMainLooper()).postDelayed({
+                notification.isVisible = false
+            },500)
         }
         loginButton.setOnClickListener {
             // TODO 로그인 액티비티로 넘어가기
