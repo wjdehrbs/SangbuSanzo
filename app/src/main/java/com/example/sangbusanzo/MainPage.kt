@@ -74,11 +74,11 @@ class MainPage : AppCompatActivity() {
     private var isLoggedIn = false
     private val list by lazy {
         listOf(
-            TeamMember("정도균", R.mipmap.ic_launcher_round, "INFP", "안녕하세요1"),
-            TeamMember("김민종", R.mipmap.ic_launcher_round, "ISTJ", "안녕하세요2"),
-            TeamMember("박준수", R.mipmap.ic_launcher_round, "INFP", "안녕하세요3"),
-            TeamMember("정선호", R.mipmap.ic_launcher_round, "ISFP", "안녕하세요4"),
-            TeamMember("임재민", R.mipmap.ic_launcher_round, "ENTP", "안녕하세요5")
+            TeamMember("정도균", R.drawable.icon_apeach, "INFP", "안녕하세요1"),
+            TeamMember("김민종", R.drawable.icon_con, "ISTJ", "안녕하세요2"),
+            TeamMember("박준수", R.drawable.icon_lion, "INFP", "안녕하세요3"),
+            TeamMember("정선호", R.drawable.icon_muji, "ISFP", "안녕하세요4"),
+            TeamMember("임재민", R.drawable.icon_tube, "ENTP", "안녕하세요5")
         )
     }
 
@@ -127,22 +127,36 @@ class MainPage : AppCompatActivity() {
 //                loginButton.isVisible = false
 //                setting.isVisible = true
                 cardViewMainTextView.text = name
-                cardViewMainImageView.setImageResource(list.filter{it.name == name}[0].titleImage)
-
+                cardViewMainImageView.apply {
+                    setImageResource(list.filter{it.name == name}[0].titleImage)
+                    clipToOutline = true
+                }
                 cardViewFirstTextView.text = filteredList[0].name
-                cardViewFirstImageView.setImageResource(filteredList[0].titleImage)
+                cardViewFirstImageView.apply {
+                    setImageResource(filteredList[0].titleImage)
+                    clipToOutline = true
+                }
                 cardViewFirstShortTextView.text = filteredList[0].shortWord
 
                 cardViewSecondTextView.text = filteredList[1].name
-                cardViewSecondImageView.setImageResource(filteredList[1].titleImage)
+                cardViewSecondImageView.apply {
+                    setImageResource(filteredList[1].titleImage)
+                    clipToOutline = true
+                }
                 cardViewSecondShortTextView.text = filteredList[1].shortWord
 
                 cardViewThirdTextView.text = filteredList[2].name
-                cardViewThirdImageView.setImageResource(filteredList[2].titleImage)
+                cardViewThirdImageView.apply {
+                    setImageResource(filteredList[2].titleImage)
+                    clipToOutline = true
+                }
                 cardViewThirdShortTextView.text = filteredList[2].shortWord
 
                 cardViewFourthTextView.text = filteredList[3].name
-                cardViewFourthImageView.setImageResource(filteredList[3].titleImage)
+                cardViewFourthImageView.apply {
+                    setImageResource(filteredList[3].titleImage)
+                    clipToOutline = true
+                }
                 cardViewFourthShortTextView.text = filteredList[3].shortWord
             }
             false -> {
