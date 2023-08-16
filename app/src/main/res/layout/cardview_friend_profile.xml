@@ -18,7 +18,7 @@
             android:id="@+id/friend_profile_imageview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/friend_profile_imageview"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="36dp"
+            />
+        <TextView
+            android:id="@+id/friend_profile_short_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/textview_short_background"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="36dp"
+            android:maxLines="1"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

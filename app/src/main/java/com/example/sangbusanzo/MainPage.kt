@@ -1,9 +1,6 @@
 package com.example.sangbusanzo
 
-import android.app.ActivityOptions
-import android.content.Context
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -16,8 +13,6 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.view.children
-import androidx.core.view.get
 import androidx.core.view.isVisible
 import com.example.sangbusanzo.model.TeamMember
 
@@ -44,11 +39,17 @@ class MainPage : AppCompatActivity() {
     private val cardViewFirstTextView by lazy {
         cardViewFirst.findViewById<TextView>(R.id.friend_profile_textview)
     }
+    private val cardViewFirstShortTextView by lazy {
+        cardViewFirst.findViewById<TextView>(R.id.friend_profile_short_text)
+    }
     private val cardViewSecondImageView by lazy {
         cardViewSecond.findViewById<ImageView>(R.id.friend_profile_imageview)
     }
     private val cardViewSecondTextView by lazy {
         cardViewSecond.findViewById<TextView>(R.id.friend_profile_textview)
+    }
+    private val cardViewSecondShortTextView by lazy {
+        cardViewSecond.findViewById<TextView>(R.id.friend_profile_short_text)
     }
     private val cardViewThirdImageView by lazy {
         cardViewThird.findViewById<ImageView>(R.id.friend_profile_imageview)
@@ -56,26 +57,27 @@ class MainPage : AppCompatActivity() {
     private val cardViewThirdTextView by lazy {
         cardViewThird.findViewById<TextView>(R.id.friend_profile_textview)
     }
+    private val cardViewThirdShortTextView by lazy {
+        cardViewThird.findViewById<TextView>(R.id.friend_profile_short_text)
+    }
     private val cardViewFourthImageView by lazy {
         cardViewFourth.findViewById<ImageView>(R.id.friend_profile_imageview)
     }
     private val cardViewFourthTextView by lazy {
         cardViewFourth.findViewById<TextView>(R.id.friend_profile_textview)
     }
-
-
-
-
-
+    private val cardViewFourthShortTextView by lazy {
+        cardViewFourth.findViewById<TextView>(R.id.friend_profile_short_text)
+    }
     private val notLoggedInTextView by lazy { findViewById<TextView>(R.id.not_logged_in) }
     private var isLoggedIn = false
     private val list by lazy {
         listOf(
-            TeamMember("정도균", R.mipmap.ic_launcher_round, "INFP", "안녕하세요"),
-            TeamMember("김민종", R.mipmap.ic_launcher_round, "ISTJ", "안녕하세요"),
-            TeamMember("박준수", R.mipmap.ic_launcher_round, "INFP", "안녕하세요"),
-            TeamMember("정선호", R.mipmap.ic_launcher_round, "ISFP", "안녕하세요"),
-            TeamMember("임재민", R.mipmap.ic_launcher_round, "ENTP", "안녕하세요")
+            TeamMember("정도균", R.mipmap.ic_launcher_round, "INFP", "안녕하세요1"),
+            TeamMember("김민종", R.mipmap.ic_launcher_round, "ISTJ", "안녕하세요2"),
+            TeamMember("박준수", R.mipmap.ic_launcher_round, "INFP", "안녕하세요3"),
+            TeamMember("정선호", R.mipmap.ic_launcher_round, "ISFP", "안녕하세요4"),
+            TeamMember("임재민", R.mipmap.ic_launcher_round, "ENTP", "안녕하세요5")
         )
     }
 
@@ -116,22 +118,30 @@ class MainPage : AppCompatActivity() {
     private fun initViews() {
         when(isLoggedIn) {
             true -> {
+                val name = intent?.getStringExtra("name") ?: "정도균"
+                val filteredList = list.filter{ it.name != name }
                 scrollView.isVisible = true
                 notLoggedInTextView.isVisible = false
 //                loginButton.isVisible = false
 //                setting.isVisible = true
-                val name = intent?.getStringExtra("name") ?: "정도균"
-                val filteredList = list.filter{ it.name != name }
                 cardViewMainTextView.text = name
                 cardViewMainImageView.setImageResource(list.filter{it.name == name}[0].titleImage)
+
                 cardViewFirstTextView.text = filteredList[0].name
                 cardViewFirstImageView.setImageResource(filteredList[0].titleImage)
+                cardViewFirstShortTextView.text = filteredList[0].shortWord
+
                 cardViewSecondTextView.text = filteredList[1].name
                 cardViewSecondImageView.setImageResource(filteredList[1].titleImage)
+                cardViewSecondShortTextView.text = filteredList[1].shortWord
+
                 cardViewThirdTextView.text = filteredList[2].name
                 cardViewThirdImageView.setImageResource(filteredList[2].titleImage)
+                cardViewThirdShortTextView.text = filteredList[2].shortWord
+
                 cardViewFourthTextView.text = filteredList[3].name
                 cardViewFourthImageView.setImageResource(filteredList[3].titleImage)
+                cardViewFourthShortTextView.text = filteredList[3].shortWord
             }
             false -> {
                 scrollView.isVisible = false
