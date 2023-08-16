@@ -22,6 +22,7 @@ class MainPage : AppCompatActivity() {
     private val scrollView by lazy { findViewById<ScrollView>(R.id.scrollview_friends) }
     private val notificationCloseButton by lazy { findViewById<ImageButton>(R.id.close_button) }
     private val notification by lazy { findViewById<CardView>(R.id.main_notification) }
+    private val notificationTextView by lazy { notification.findViewById<TextView>(R.id.notification_text) }
     private val cardViewMain by lazy { findViewById<CardView>(R.id.main_profile) }
     private val cardViewFirst by lazy { findViewById<CardView>(R.id.main_friend_1) }
     private val cardViewSecond by lazy { findViewById<CardView>(R.id.main_friend_2) }
@@ -116,6 +117,7 @@ class MainPage : AppCompatActivity() {
     }
 
     private fun initViews() {
+        notificationTextView.isSelected = true // 흐르는 효과
         when(isLoggedIn) {
             true -> {
                 val name = intent?.getStringExtra("name") ?: "정도균"
