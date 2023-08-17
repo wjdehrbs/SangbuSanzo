@@ -56,7 +56,7 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/loginbt"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             android:textSize="13dp"
             android:text="------------------------------------또는---------------------------" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/SIBT"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
