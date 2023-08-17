@@ -107,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="147dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_signup"
             android:layout_width="160dp"
             android:layout_height="59dp"
@@ -120,10 +120,9 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="#3C2C2C"
             android:textColor="#FFFFFF"
-
             app:layout_constraintVertical_bias="0.352" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancel_button"
             android:layout_width="160dp"
             android:layout_height="59dp"
