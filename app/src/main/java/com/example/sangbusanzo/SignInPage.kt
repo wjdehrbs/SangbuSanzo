@@ -1,4 +1,4 @@
-package com.example.signinpage
+package com.example.sangbusanzo
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.sangbusanzo.R
 import java.util.regex.Pattern
 
 class SignInPage : AppCompatActivity() {

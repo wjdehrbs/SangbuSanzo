@@ -43,12 +43,12 @@ class LogInPage : AppCompatActivity() {
                 messageTextView.text = ""
 
                 Toast.makeText(this, "xxx님 반갑습니다.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainPage(메인 페이지 명)::class.java)
+                val intent = Intent(this, MainPage::class.java)
                 startActivity(intent)
             }
         }
         SignInButton.setOnClickListener{
-            val intent = Intent(this, SignInPage(회원가입 페이지 명)::class.java)
+            val intent = Intent(this, SignInPage::class.java)
             startActivity(intent)
         }
     }

@@ -131,8 +131,8 @@ class MainPage : AppCompatActivity() {
                 val filteredList = list.filter { it.name != name }
                 scrollView.isVisible = true
                 notLoggedInTextView.isVisible = false
-//                loginButton.isVisible = false
-//                setting.isVisible = true
+                loginButton.isVisible = false
+                setting.isVisible = true
                 cardViewMainTextView.text = name
                 cardViewMainImageView.apply {
                     setImageResource(list.filter { it.name == name }[0].titleImage)
@@ -170,8 +170,8 @@ class MainPage : AppCompatActivity() {
             false -> {
                 scrollView.isVisible = false
                 notLoggedInTextView.isVisible = true
-//                loginButton.isVisible = true
-//                setting.isVisible = false
+                loginButton.isVisible = true
+                setting.isVisible = false
             }
         }
     }
@@ -186,9 +186,9 @@ class MainPage : AppCompatActivity() {
         }
         loginButton.setOnClickListener {
             // TODO 로그인 액티비티로 넘어가기
-            isLoggedIn = !isLoggedIn // 테스트용
-            initViews() // 테스트용
-//            startActivity(Intent(this@MainActivity, LogInPage::class.java))
+//            isLoggedIn = !isLoggedIn // 테스트용
+//            initViews() // 테스트용
+            startActivity(Intent(this@MainPage, LogInPage::class.java))
         }
         setting.setOnClickListener {
             println(list.first { it.name == name })
