@@ -13,6 +13,11 @@ class SignInPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signinpage)
 
+            val btnCancel = findViewById<Button>(R.id.cancel_button)
+        btnCancel.setOnClickListener {
+            finish() // 취소버튼을 누르면 로그인페이지로 이동
+        }
+
             val btn_add = findViewById<Button>(R.id.btn_signup)
             btn_add.setOnClickListener {
                 val textname = findViewById<EditText>(R.id.edit_name)
