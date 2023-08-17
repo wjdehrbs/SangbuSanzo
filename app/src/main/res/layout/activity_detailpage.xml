@@ -121,8 +121,8 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/button_color"
             android:text="수정"
+            android:textColor="#FFFFFF"
             android:visibility="invisible"
-            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -134,7 +134,7 @@
             android:layout_marginEnd="40dp"
             android:background="@drawable/button_color"
             android:text="1:1채팅"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
