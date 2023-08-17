@@ -86,11 +86,11 @@ class MainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        isLoggedIn = intent?.getBooleanExtra("isLoggedIn", false) ?: false
+//        isLoggedIn = intent?.getBooleanExtra("isLoggedIn", false) ?: false
+        name = intent?.getStringExtra("nameFromSignUpActivity") ?: ""
         initViews()
         initCardViews()
         initButton()
-        getLoginInfo()
     }
 
     private fun initCardViews() {
@@ -120,24 +120,30 @@ class MainPage : AppCompatActivity() {
         startActivity(Intent(this@MainPage, activity).apply {
             // TODO 팀원 정보 리스트를 만들어서 해당인원 정보 넘기기
             putExtra("data", data)
+            if(data.name == name) {
+                putExtra("isValid", true)
+            } else {
+                putExtra("isValid", false)
+            }
         })
     }
 
     private fun initViews() {
         notificationTextView.isSelected = true // 흐르는 효과
-        when (isLoggedIn) {
+        when (name.isNotEmpty()) {
             true -> {
-                name = intent?.getStringExtra("name") ?: "정도균"
                 val filteredList = list.filter { it.name != name }
                 scrollView.isVisible = true
                 notLoggedInTextView.isVisible = false
                 loginButton.isVisible = false
                 setting.isVisible = true
+
                 cardViewMainTextView.text = name
                 cardViewMainImageView.apply {
                     setImageResource(list.filter { it.name == name }[0].titleImage)
                     clipToOutline = true
                 }
+
                 cardViewFirstTextView.text = filteredList[0].name
                 cardViewFirstImageView.apply {
                     setImageResource(filteredList[0].titleImage)
@@ -189,15 +195,12 @@ class MainPage : AppCompatActivity() {
 //            isLoggedIn = !isLoggedIn // 테스트용
 //            initViews() // 테스트용
             startActivity(Intent(this@MainPage, LogInPage::class.java))
+            overridePendingTransition(R.anim.fade_out, R.anim.fade_in)
         }
         setting.setOnClickListener {
             println(list.first { it.name == name })
 //            startDetailPage(DetailPage::class.java, list.first { it.name == name })
 //            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
-    }
-
-    private fun getLoginInfo() {
-
     }
 }
