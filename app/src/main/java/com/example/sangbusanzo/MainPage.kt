@@ -72,6 +72,7 @@ class MainPage : AppCompatActivity() {
     }
     private val notLoggedInTextView by lazy { findViewById<TextView>(R.id.not_logged_in) }
     private var isLoggedIn = false
+    private lateinit var name: String
     private val list by lazy {
         listOf(
             TeamMember("정도균", R.drawable.icon_apeach, "INFP", "안녕하세요1"),
@@ -85,35 +86,37 @@ class MainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        isLoggedIn = intent?.getBooleanExtra("isLoggedIn",false) ?: false
+        isLoggedIn = intent?.getBooleanExtra("isLoggedIn", false) ?: false
         initViews()
         initCardViews()
         initButton()
         getLoginInfo()
     }
+
     private fun initCardViews() {
         cardViewFirst.setOnClickListener {
-            Toast.makeText(this@MainPage, "1",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainPage, "1", Toast.LENGTH_SHORT).show()
 //            startDetailPage(DetailPage::class.java, list[0])
 //            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewSecond.setOnClickListener {
-            Toast.makeText(this@MainPage, "2",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainPage, "2", Toast.LENGTH_SHORT).show()
 //            startDetailPage(DetailPage::class.java, list[1])
 //            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewThird.setOnClickListener {
-            Toast.makeText(this@MainPage, "3",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainPage, "3", Toast.LENGTH_SHORT).show()
 //            startDetailPage(DetailPage::class.java, list[2])
 //            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewFourth.setOnClickListener {
-            Toast.makeText(this@MainPage, "4",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainPage, "4", Toast.LENGTH_SHORT).show()
 //            startDetailPage(DetailPage::class.java, list[3])
 //            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
-    private fun <T> startDetailPage(activity: Class<T>, data: TeamMember ) {
+
+    private fun <T> startDetailPage(activity: Class<T>, data: TeamMember) {
         startActivity(Intent(this@MainPage, activity).apply {
             // TODO 팀원 정보 리스트를 만들어서 해당인원 정보 넘기기
             putExtra("data", data)
@@ -122,17 +125,17 @@ class MainPage : AppCompatActivity() {
 
     private fun initViews() {
         notificationTextView.isSelected = true // 흐르는 효과
-        when(isLoggedIn) {
+        when (isLoggedIn) {
             true -> {
-                val name = intent?.getStringExtra("name") ?: "정도균"
-                val filteredList = list.filter{ it.name != name }
+                name = intent?.getStringExtra("name") ?: "정도균"
+                val filteredList = list.filter { it.name != name }
                 scrollView.isVisible = true
                 notLoggedInTextView.isVisible = false
 //                loginButton.isVisible = false
 //                setting.isVisible = true
                 cardViewMainTextView.text = name
                 cardViewMainImageView.apply {
-                    setImageResource(list.filter{it.name == name}[0].titleImage)
+                    setImageResource(list.filter { it.name == name }[0].titleImage)
                     clipToOutline = true
                 }
                 cardViewFirstTextView.text = filteredList[0].name
@@ -163,6 +166,7 @@ class MainPage : AppCompatActivity() {
                 }
                 cardViewFourthShortTextView.text = filteredList[3].shortWord
             }
+
             false -> {
                 scrollView.isVisible = false
                 notLoggedInTextView.isVisible = true
@@ -178,13 +182,18 @@ class MainPage : AppCompatActivity() {
             notification.startAnimation(animation)
             Handler(Looper.getMainLooper()).postDelayed({
                 notification.isVisible = false
-            },500)
+            }, 500)
         }
         loginButton.setOnClickListener {
             // TODO 로그인 액티비티로 넘어가기
             isLoggedIn = !isLoggedIn // 테스트용
             initViews() // 테스트용
 //            startActivity(Intent(this@MainActivity, LogInPage::class.java))
+        }
+        setting.setOnClickListener {
+            println(list.first { it.name == name })
+//            startDetailPage(DetailPage::class.java, list.first { it.name == name })
+//            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
 
