@@ -86,8 +86,7 @@ class MainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        isLoggedIn = intent?.getBooleanExtra("isLoggedIn", false) ?: false
-        name = intent?.getStringExtra("nameFromSignUpActivity") ?: ""
+        name = intent?.getStringExtra("nameFromSignUpActivity")?.trim() ?: ""
         initViews()
         initCardViews()
         initButton()
@@ -192,8 +191,6 @@ class MainPage : AppCompatActivity() {
         }
         loginButton.setOnClickListener {
             // TODO 로그인 액티비티로 넘어가기
-//            isLoggedIn = !isLoggedIn // 테스트용
-//            initViews() // 테스트용
             startActivity(Intent(this@MainPage, LogInPage::class.java))
             overridePendingTransition(R.anim.fade_out, R.anim.fade_in)
         }
