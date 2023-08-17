@@ -1,5 +1,6 @@
 package com.example.sangbusanzo
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,6 +38,11 @@ class DetailPage : AppCompatActivity() {
             btn.visibility = View.VISIBLE
             //true면 수정버튼 보이게
 
+            btn.setOnClickListener {
+                val intent = Intent(this, mypage::class.java)
+                startActivity(intent)
+            }
+
         }
         else if(isvald == false){
             val btn = findViewById<Button>(R.id.button1)
@@ -52,6 +58,7 @@ class DetailPage : AppCompatActivity() {
         textname.text = member?.name
         textmbti.text = member?.mbti
         textshortWord.text = member?.shortWord
-        image.setImageResource(member!!.titleImage)
+        image.apply {setImageResource(member.titleImage)
+            clipToOutline = true }
     }
 }
