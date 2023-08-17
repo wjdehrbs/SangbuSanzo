@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.sangbusanzo.R
 import java.util.regex.Pattern
 
 class SignInPage : AppCompatActivity() {
@@ -49,6 +48,7 @@ class SignInPage : AppCompatActivity() {
                     val resultIntent = Intent()
                     resultIntent.putExtra("dataFromSignUpActivity", userId)
                     resultIntent.putExtra("passwordFromSignUpActivity", password)
+                    resultIntent.putExtra("nameFromSignUpActivity", username)
                     setResult(RESULT_OK, resultIntent)
                     finish()
                 }

@@ -1,7 +1,7 @@
 package com.example.sangbusanzo
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -9,6 +9,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 
 class LogInPage : AppCompatActivity() {
 
@@ -30,9 +33,9 @@ class LogInPage : AppCompatActivity() {
         messageTextView = findViewById(R.id.messageTextView)
 
         LogInButton.setOnClickListener {
-
             val id = idEditText.text.toString()
             val password = passwordEditText.text.toString()
+            val username = intent.getStringExtra("nameFromSignUpActivity")
 
             if (TextUtils.isEmpty(id) || TextUtils.isEmpty(password)) {
                 messageTextView.visibility = View.VISIBLE
@@ -44,12 +47,29 @@ class LogInPage : AppCompatActivity() {
 
                 Toast.makeText(this, "xxx님 반갑습니다.", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainPage::class.java)
+                intent.putExtra("nameFromSignUpActivity", username)
                 startActivity(intent)
             }
+
         }
-        SignInButton.setOnClickListener{
+
+        val signInLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                val userId = data?.getStringExtra("dataFromSignUpActivity")
+                val password = data?.getStringExtra("passwordFromSignUpActivity")
+
+                if (!userId.isNullOrBlank() && !password.isNullOrBlank()) {
+                    idEditText.setText(userId)
+                    passwordEditText.setText(password)
+                }
+            }
+        }
+
+        SignInButton.setOnClickListener {
             val intent = Intent(this, SignInPage::class.java)
-            startActivity(intent)
+            signInLauncher.launch(intent) // ActivityResultLauncher를 통해 액티비티 시작
         }
     }
 }
