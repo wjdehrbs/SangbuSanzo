@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="SignUpActivity">
+    android:background="@color/yellow"
+    tools:context=".SignInPage">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -102,16 +103,40 @@
         tools:layout_editor_absoluteY="488dp"
         />
 
-    <Button
-        android:id="@+id/btn_signup"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:onClick="onClicksignup"
-        android:text="회원가입"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="147dp">
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="160dp"
+            android:layout_height="59dp"
+            android:onClick="onClicksignup"
+            android:text="회원가입"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toEndOf="@+id/cancel_button"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#3C2C2C"
+            android:textColor="#FFFFFF"
+
+            app:layout_constraintVertical_bias="0.352" />
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="160dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="20dp"
+            android:background="#3C2C2C"
+            android:text="취소"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.352" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
