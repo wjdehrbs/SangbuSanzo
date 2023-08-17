@@ -71,7 +71,7 @@ class MainPage : AppCompatActivity() {
         cardViewFourth.findViewById<TextView>(R.id.friend_profile_short_text)
     }
     private val notLoggedInTextView by lazy { findViewById<TextView>(R.id.not_logged_in) }
-    private var isLoggedIn = false
+    private lateinit var filteredList: List<TeamMember>
     private lateinit var name: String
     private val list by lazy {
         listOf(
@@ -88,29 +88,28 @@ class MainPage : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         name = intent?.getStringExtra("nameFromSignUpActivity")?.trim() ?: ""
         initViews()
-        initCardViews()
         initButton()
     }
 
     private fun initCardViews() {
         cardViewFirst.setOnClickListener {
             Toast.makeText(this@MainPage, "1", Toast.LENGTH_SHORT).show()
-            startDetailPage(DetailPage::class.java, list[0])
+            startDetailPage(DetailPage::class.java, filteredList[0])
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewSecond.setOnClickListener {
             Toast.makeText(this@MainPage, "2", Toast.LENGTH_SHORT).show()
-           startDetailPage(DetailPage::class.java, list[1])
+           startDetailPage(DetailPage::class.java, filteredList[1])
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewThird.setOnClickListener {
             Toast.makeText(this@MainPage, "3", Toast.LENGTH_SHORT).show()
-          startDetailPage(DetailPage::class.java, list[2])
+          startDetailPage(DetailPage::class.java, filteredList[2])
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewFourth.setOnClickListener {
             Toast.makeText(this@MainPage, "4", Toast.LENGTH_SHORT).show()
-            startDetailPage(DetailPage::class.java, list[3])
+            startDetailPage(DetailPage::class.java, filteredList[3])
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
@@ -131,7 +130,8 @@ class MainPage : AppCompatActivity() {
         notificationTextView.isSelected = true // 흐르는 효과
         when (name.isNotEmpty()) {
             true -> {
-                val filteredList = list.filter { it.name != name }
+                filteredList = list.filter { it.name != name }
+                initCardViews()
                 scrollView.isVisible = true
                 notLoggedInTextView.isVisible = false
                 loginButton.isVisible = false
