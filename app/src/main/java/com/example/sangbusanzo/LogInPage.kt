@@ -20,6 +20,7 @@ class LogInPage : AppCompatActivity() {
     private lateinit var LogInButton: Button
     private lateinit var SignInButton: Button
     private lateinit var messageTextView: TextView
+    private lateinit var username: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class LogInPage : AppCompatActivity() {
         LogInButton.setOnClickListener {
             val id = idEditText.text.toString()
             val password = passwordEditText.text.toString()
-            val username = intent.getStringExtra("nameFromSignUpActivity")
+
 
             if (TextUtils.isEmpty(id) || TextUtils.isEmpty(password)) {
                 messageTextView.visibility = View.VISIBLE
@@ -59,6 +60,7 @@ class LogInPage : AppCompatActivity() {
                 val data: Intent? = result.data
                 val userId = data?.getStringExtra("dataFromSignUpActivity")
                 val password = data?.getStringExtra("passwordFromSignUpActivity")
+                username = data?.getStringExtra("nameFromSignUpActivity")!!
 
                 if (!userId.isNullOrBlank() && !password.isNullOrBlank()) {
                     idEditText.setText(userId)
