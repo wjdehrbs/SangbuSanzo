@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="139dp"
-        android:layout_height="139dp"
-        android:src="@drawable/sparta"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo1"
         app:layout_editor_absoluteX="133dp"
         app:layout_editor_absoluteY="37dp" />
 
@@ -24,7 +24,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
         android:text="이름"
-        android:textSize="20sp"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
 
     <EditText
         android:id="@+id/edit_name"
-        android:layout_width="355dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
@@ -42,6 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:errorEnabled="true"
+        android:background="@color/white"
         app:errorTextColor="@android:color/holo_red_light"
         tools:layout_editor_absoluteY="270dp" />
 
@@ -53,7 +54,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
         android:text="아이디"
-        android:textSize="20sp"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +62,7 @@
 
     <EditText
         android:id="@+id/edittextId"
-        android:layout_width="355dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
@@ -71,6 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:errorEnabled="true"
+        android:background="@color/white"
         app:errorTextColor="@android:color/holo_red_light"
         tools:layout_editor_absoluteY="376dp" />
 
@@ -81,17 +83,17 @@
         android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
         android:text="비밀번호"
-        android:textSize="20sp"
+        android:textSize="22dp"
+        app:errorEnabled="true"
+        app:errorTextColor="@android:color/holo_red_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:errorEnabled="true"
-        app:errorTextColor="@android:color/holo_red_light"
         tools:layout_editor_absoluteY="458dp" />
 
     <EditText
         android:id="@+id/editTextPw"
-        android:layout_width="355dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
@@ -101,6 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="488dp"
+        android:background="@color/white"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -126,7 +129,6 @@
             android:id="@+id/cancel_button"
             android:layout_width="160dp"
             android:layout_height="59dp"
-            android:layout_marginStart="20dp"
             android:background="#3C2C2C"
             android:text="취소"
             android:textColor="#FFFFFF"
