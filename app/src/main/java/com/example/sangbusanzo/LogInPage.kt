@@ -46,8 +46,10 @@ class LogInPage : AppCompatActivity() {
                 messageTextView.visibility = View.GONE
                 messageTextView.text = ""
 
-                Toast.makeText(this, "xxx님 반갑습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "${username}님 반갑습니다.", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainPage::class.java)
+                if(::username.isInitialized.not())
+                    username = "정도균"
                 intent.putExtra("nameFromSignUpActivity", username)
                 startActivity(intent)
             }
