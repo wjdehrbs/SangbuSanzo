@@ -95,22 +95,26 @@ class MainPage : AppCompatActivity() {
         cardViewFirst.setOnClickListener {
             Toast.makeText(this@MainPage, "1",Toast.LENGTH_SHORT).show()
 //            startDetailPage(DetailPage::class.java, list[0])
+//            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewSecond.setOnClickListener {
             Toast.makeText(this@MainPage, "2",Toast.LENGTH_SHORT).show()
 //            startDetailPage(DetailPage::class.java, list[1])
+//            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewThird.setOnClickListener {
             Toast.makeText(this@MainPage, "3",Toast.LENGTH_SHORT).show()
 //            startDetailPage(DetailPage::class.java, list[2])
+//            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
         cardViewFourth.setOnClickListener {
             Toast.makeText(this@MainPage, "4",Toast.LENGTH_SHORT).show()
 //            startDetailPage(DetailPage::class.java, list[3])
+//            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
-    private fun startDetailPage(activity: AppCompatActivity, data: TeamMember ) {
-        startActivity(Intent(this@MainPage, activity::class.java).apply {
+    private fun <T> startDetailPage(activity: Class<T>, data: TeamMember ) {
+        startActivity(Intent(this@MainPage, activity).apply {
             // TODO 팀원 정보 리스트를 만들어서 해당인원 정보 넘기기
             putExtra("data", data)
         })
