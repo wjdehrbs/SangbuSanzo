@@ -18,32 +18,32 @@ class SignInPage : AppCompatActivity() {
             finish() // 취소버튼을 누르면 로그인페이지로 이동
         }
 
-            val btn_add = findViewById<Button>(R.id.btn_signup)
-            btn_add.setOnClickListener {
-                val textname = findViewById<EditText>(R.id.edit_name)
-                val text_Id = findViewById<EditText>(R.id.edittextId)
-                val text_Pass = findViewById<EditText>(R.id.editTextPw)
-                val username = textname.text.toString()
-                val userId = text_Id.text.toString()
-                val password = text_Pass.text.toString()
+            val btnAdd = findViewById<Button>(R.id.btn_signup)
+            btnAdd.setOnClickListener {
+                val textName = findViewById<EditText>(R.id.edit_name)
+                val textId = findViewById<EditText>(R.id.edit_text_Id)
+                val textPass = findViewById<EditText>(R.id.edit_Text_Pw)
+                val username = textName.text.toString()
+                val userId = textId.text.toString()
+                val password = textPass.text.toString()
 
                 var hasError = false
 
                 if (username.length > 4) {
-                    textname.error = "이름은 4자 이내로 입력해주세요."
+                    textName.error = "이름은 4자 이내로 입력해주세요."
                     hasError = true
                 }
 
                 if (userId.length > 20) {
-                    text_Id.error = "아이디는 20자 이내로 입력해주세요."
+                    textId.error = "아이디는 20자 이내로 입력해주세요."
                     hasError = true
                 }
 
                 if (password.length < 8 || password.length > 16) {
-                    text_Pass.error = "비밀번호는 영문, 숫자, 특수문자를 조합하여 8자에서 16자 사이로 입력해주세요."
+                    textPass.error = "비밀번호는 영문, 숫자, 특수문자를 조합하여 8자에서 16자 사이로 입력해주세요."
                     hasError = true
                 } else if (!isValidPassword(password)) {
-                    text_Pass.error = "비밀번호는 영어, 숫자, 특수문자만 사용하여 입력해주세요."
+                    textPass.error = "비밀번호는 영어, 숫자, 특수문자만 사용하여 입력해주세요."
                     hasError = true
                 }
 
