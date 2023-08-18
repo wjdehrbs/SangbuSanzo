@@ -8,7 +8,6 @@ class My_page : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_page)
-
         val intent = intent
         val input_detail_text1 = intent.getStringExtra("detail_text1")
         val input_detail_text2 = intent.getStringExtra("detail_text2")
