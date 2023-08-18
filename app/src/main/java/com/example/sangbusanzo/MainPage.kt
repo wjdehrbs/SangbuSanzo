@@ -176,7 +176,6 @@ class MainPage : AppCompatActivity() {
             }
         }
     }
-
     private fun initButton() {
         notificationCloseButton.setOnClickListener {
             val animation = AnimationUtils.loadAnimation(notification.context, R.anim.fade_out)

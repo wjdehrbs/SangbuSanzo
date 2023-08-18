@@ -17,4 +17,5 @@ class My_page : AppCompatActivity() {
         val detail_text2 : EditText = findViewById(R.id.detail_text2)
         detail_text2.setText(input_detail_text2)
     }
+
 }

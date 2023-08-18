@@ -20,7 +20,6 @@ class DetailPage : AppCompatActivity() {
     private lateinit var image: ImageView
     private lateinit var backbutton: ImageButton
     private lateinit var member : TeamMember
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailpage)

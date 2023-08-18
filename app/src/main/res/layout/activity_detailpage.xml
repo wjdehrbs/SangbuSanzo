@@ -12,7 +12,6 @@
         android:layout_gravity="start"
         android:background="#ffff05"
         android:columnCount="3">
-
         <ImageView
             android:id="@+id/image1"
             android:layout_width="81dp"

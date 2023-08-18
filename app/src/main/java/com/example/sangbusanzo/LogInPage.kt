@@ -21,7 +21,6 @@ class LogInPage : AppCompatActivity() {
     private lateinit var SignInButton: Button
     private lateinit var messageTextView: TextView
     private lateinit var username: String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in_page)

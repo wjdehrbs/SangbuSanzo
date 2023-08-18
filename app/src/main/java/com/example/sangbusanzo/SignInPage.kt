@@ -66,4 +66,5 @@ class SignInPage : AppCompatActivity() {
             val pattern = Pattern.compile("^[a-zA-Z0-9!@#\$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]*$")
             return pattern.matcher(password).matches()
         }
+
 }
