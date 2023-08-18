@@ -75,11 +75,11 @@ class MainPage : AppCompatActivity() {
     private lateinit var name: String
     private val list by lazy {
         listOf(
-            TeamMember("정도균", R.drawable.icon_apeach, "INFP", "안녕하세요1"),
-            TeamMember("김민종", R.drawable.icon_con, "ISTJ", "안녕하세요2"),
-            TeamMember("박준수", R.drawable.icon_lion, "INFP", "안녕하세요3"),
-            TeamMember("정선호", R.drawable.icon_muji, "ISFP", "안녕하세요4"),
-            TeamMember("임재민", R.drawable.icon_tube, "ENTP", "안녕하세요5")
+            TeamMember("정도균", R.drawable.icon_apeach, "INFP", "언제든 편하게 아무거나 사소한 개인적인 것도 질문하시고 말씀 걸어주셔도 됩니다! 저도 질문 많이 할게요!"),
+            TeamMember("김민종", R.drawable.icon_con, "ISTJ", "3주 열심히 같이 해봅시다! "),
+            TeamMember("박준수", R.drawable.icon_lion, "INFP", "열심히 하겠습니다!"),
+            TeamMember("정선호", R.drawable.icon_muji, "ISFP", "행복하지마요~ 행복하려면~"),
+            TeamMember("임재민", R.drawable.icon_tube, "ENTP", "잘 놀다 가겠습니다")
         )
     }
 
@@ -116,7 +116,6 @@ class MainPage : AppCompatActivity() {
 
     private fun <T> startDetailPage(activity: Class<T>, data: TeamMember) {
         startActivity(Intent(this@MainPage, activity).apply {
-            // TODO 팀원 정보 리스트를 만들어서 해당인원 정보 넘기기
             putExtra("data", data)
             if(data.name == name) {
                 putExtra("isValid", true)
@@ -190,14 +189,24 @@ class MainPage : AppCompatActivity() {
             }, 500)
         }
         loginButton.setOnClickListener {
-            // TODO 로그인 액티비티로 넘어가기
             startActivity(Intent(this@MainPage, LogInPage::class.java))
             overridePendingTransition(R.anim.fade_out, R.anim.fade_in)
         }
         setting.setOnClickListener {
-//            println(list.first { it.name == name })
             startDetailPage(DetailPage::class.java, list.first { it.name == name })
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
+        cardViewFirstShortTextView.setOnClickListener {
+            it.isSelected = true
+        }
+        cardViewSecondShortTextView.setOnClickListener {
+            it.isSelected = true
+        }
+        cardViewThirdShortTextView.setOnClickListener {
+            it.isSelected = true
+        }
+        cardViewFourthShortTextView.setOnClickListener {
+            it.isSelected = true
         }
     }
 }
