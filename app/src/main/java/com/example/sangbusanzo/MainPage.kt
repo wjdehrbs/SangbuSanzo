@@ -89,28 +89,25 @@ class MainPage : AppCompatActivity() {
         name = intent?.getStringExtra("nameFromSignUpActivity")?.trim() ?: ""
         initViews()
         initButton()
+        overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom , androidx.appcompat.R.anim.abc_slide_out_bottom)
     }
 
     private fun initCardViews() {
         cardViewFirst.setOnClickListener {
-            Toast.makeText(this@MainPage, "1", Toast.LENGTH_SHORT).show()
             startDetailPage(DetailPage::class.java, filteredList[0])
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom, androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
         cardViewSecond.setOnClickListener {
-            Toast.makeText(this@MainPage, "2", Toast.LENGTH_SHORT).show()
            startDetailPage(DetailPage::class.java, filteredList[1])
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom, androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
         cardViewThird.setOnClickListener {
-            Toast.makeText(this@MainPage, "3", Toast.LENGTH_SHORT).show()
           startDetailPage(DetailPage::class.java, filteredList[2])
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom, androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
         cardViewFourth.setOnClickListener {
-            Toast.makeText(this@MainPage, "4", Toast.LENGTH_SHORT).show()
             startDetailPage(DetailPage::class.java, filteredList[3])
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom, androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
     }
 

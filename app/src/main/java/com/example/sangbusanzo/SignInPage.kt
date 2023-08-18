@@ -12,10 +12,12 @@ class SignInPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signinpage)
+        overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom , androidx.appcompat.R.anim.abc_slide_out_bottom)
 
             val btnCancel = findViewById<Button>(R.id.cancel_button)
         btnCancel.setOnClickListener {
             finish() // 취소버튼을 누르면 로그인페이지로 이동
+            overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom , androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
 
             val btnAdd = findViewById<Button>(R.id.btn_signup)
@@ -56,6 +58,7 @@ class SignInPage : AppCompatActivity() {
                     resultIntent.putExtra("nameFromSignUpActivity", username)
                     setResult(RESULT_OK, resultIntent)
                     finish()
+                    overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom , androidx.appcompat.R.anim.abc_slide_out_bottom)
                 }
             }
     }

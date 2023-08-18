@@ -26,6 +26,7 @@ class LogInPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in_page)
         supportActionBar?.hide()
+        overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom , androidx.appcompat.R.anim.abc_slide_out_bottom)
 
         idEditText = findViewById(R.id.idET)
         passwordEditText = findViewById(R.id.pwET)
@@ -75,6 +76,7 @@ class LogInPage : AppCompatActivity() {
         SignInButton.setOnClickListener {
             val intent = Intent(this, SignInPage::class.java)
             signInLauncher.launch(intent) // ActivityResultLauncher를 통해 액티비티 시작
+            overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom , androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
     }
 }
