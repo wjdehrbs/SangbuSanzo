@@ -157,7 +157,7 @@ class MainPage : AppCompatActivity() {
         notificationTextView.isSelected = true // 흐르는 효과
         when (name.isNotEmpty()) {
             true -> {
-                filteredList = TeamMemberData.getMemberListByName(name)
+                filteredList = TeamMemberData(this@MainPage).getMemberListByName(name)
                 initCardViews()
                 scrollView.isVisible = true
                 notLoggedInTextView.isVisible = false
@@ -166,7 +166,7 @@ class MainPage : AppCompatActivity() {
 
                 cardViewMainTextView.text = name
                 cardViewMainImageView.apply {
-                    setImageResource(TeamMemberData.getFilteredMemberByName(name).titleImage)
+                    setImageResource(TeamMemberData(this@MainPage).getFilteredMemberByName(name).titleImage)
                     clipToOutline = true
                 }
 
@@ -221,10 +221,14 @@ class MainPage : AppCompatActivity() {
             overridePendingTransition(R.anim.fade_out, R.anim.fade_in)
         }
         setting.setOnClickListener {
-            startDetailPage(DetailPage::class.java, TeamMemberData.getFilteredMemberByName(name))
+            startDetailPage(
+                DetailPage::class.java,
+                TeamMemberData(this).getFilteredMemberByName(name)
+            )
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
+
     private fun initTextView() {
         cardViewFirstShortTextView.setOnClickListener {
             it.isSelected = true
