@@ -58,22 +58,6 @@ class DetailPage : AppCompatActivity() {
 
         val isvald = intent?.getBooleanExtra("isValid", false)
 
-      /*  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-
-            member = intent?.getSerializableExtra("data", TeamMember::class.java)!!
-
-        }else{
-            member = intent?.getSerializableExtra("data") as TeamMember
-        }
-
-        val isvald = intent?.getBooleanExtra("isValid",false )
-*/
-
-
-
-
-
-
         if (isvald == true){
             val btn = findViewById<Button>(R.id.button1)
             btn.visibility = View.VISIBLE
