@@ -32,25 +32,25 @@ class SignInPage : AppCompatActivity() {
             var hasError = false
 
             if (username.length > 4) {
-                textName.error = "이름은 4자 이내로 입력해주세요."
+                textName.error = getString(R.string.input_limit_name)
                 hasError = true
             }
 
             if (userId.length > 20) {
-                textId.error = "아이디는 20자 이내로 입력해주세요."
+                textId.error = getString(R.string.input_limit_id)
                 hasError = true
             }
 
             if (password.length < 8 || password.length > 16) {
-                textPass.error = "비밀번호는 영문, 숫자, 특수문자를 조합하여 8자에서 16자 사이로 입력해주세요."
+                textPass.error = getString(R.string.input_limit_pwd_8_16)
                 hasError = true
             } else if (!isValidPassword(password)) {
-                textPass.error = "비밀번호는 영어, 숫자, 특수문자만 사용하여 입력해주세요."
+                textPass.error = getString(R.string.input_limit_pwd)
                 hasError = true
             }
 
             if (!hasError) {
-                Toast.makeText(this, "회원가입 성공!!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.sign_in_done), Toast.LENGTH_SHORT).show()
 
                 val resultIntent = Intent()
                 resultIntent.putExtra("dataFromSignUpActivity", userId)

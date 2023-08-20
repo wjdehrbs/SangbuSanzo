@@ -40,7 +40,7 @@ class LogInPage : AppCompatActivity() {
 
             if (TextUtils.isEmpty(id) || TextUtils.isEmpty(password)) {
                 messageTextView.visibility = View.VISIBLE
-                messageTextView.text = "모든 정보를 입력해주세요."
+                messageTextView.text = getString(R.string.input_all_info)
 
             } else {
                 messageTextView.visibility = View.GONE
@@ -50,7 +50,7 @@ class LogInPage : AppCompatActivity() {
                 val intent = Intent(this, MainPage::class.java)
                 if(::username.isInitialized.not())
                     username = "정도균"
-                Toast.makeText(this, "${username}님 반갑습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, username + getString(R.string.hello), Toast.LENGTH_SHORT).show()
                 intent.putExtra("nameFromSignUpActivity", username)
                 startActivity(intent)
             }
