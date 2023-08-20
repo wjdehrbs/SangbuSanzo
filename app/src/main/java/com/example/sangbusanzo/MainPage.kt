@@ -98,11 +98,11 @@ class MainPage : AppCompatActivity() {
             overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom, androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
         cardViewSecond.setOnClickListener {
-           startDetailPage(DetailPage::class.java, filteredList[1])
+            startDetailPage(DetailPage::class.java, filteredList[1])
             overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom, androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
         cardViewThird.setOnClickListener {
-          startDetailPage(DetailPage::class.java, filteredList[2])
+            startDetailPage(DetailPage::class.java, filteredList[2])
             overridePendingTransition(androidx.appcompat.R.anim.abc_slide_in_bottom, androidx.appcompat.R.anim.abc_slide_out_bottom)
         }
         cardViewFourth.setOnClickListener {
